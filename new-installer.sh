@@ -131,7 +131,7 @@ function installDatabase {
 		if [ -z `psql -U postgres -l -A -t | grep iptvpanel` ]; then
 			echo -ne  "${BCyan}Installing database...${Reset}"
 			psql -U postgres -c "CREATE DATABASE iptvpanel2" >> /dev/null 2>&1
-			psql -U postgres iptvpanel2 < /opt/iptvpanel2/lib/iptvpanel.sql >> /dev/null 2>&1
+			psql -U postgres iptvpanel2 > /opt/iptvpanel2/lib/iptvpanel.sql >> /dev/null 2>&1
 			echo -e "${BGreen}\t\t\t\tDone.${Reset}"
 		else
 			echo "${BCyan}Database found, skipping installing initial database...${Reset}";
